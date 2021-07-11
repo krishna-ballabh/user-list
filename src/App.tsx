@@ -1,25 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
 import logo from './logo.svg';
 import './App.css';
+import UserList from './UserList';
 
 function App() {
+  let [page, setPage] = useState(1);
+
+  let[title, setTitle] = useState('Favorite');
+  
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className = "items-start   space-y-8">
+      <UserList page = {page} title = {title} />
+      <button className = "px-7 py-3 rounded-full bg-green-400 border-2 font-bold" onClick = {() => setPage(page+1)}>
+        Next
+      </button>
     </div>
+    
   );
 }
 
